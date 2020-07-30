@@ -12,7 +12,7 @@ public class Author {
     @Id
     //annotation which means that the database will handle the generation of the primary key (id)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long id; /** The Id property is mapped to the primary key in the underlying database. Thus it is used to persist and retrieve object from the database. **/
 
     private String firstName;
     private String lastName;
