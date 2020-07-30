@@ -1,6 +1,5 @@
 package guru.springframework.spring5webapp.domain;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,18 +10,42 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; /** The Id property is mapped to the primary key in the underlying database. Thus it is used to persist and retrieve object from the database. **/
+    private Long id;
 
     private String name;
-    private String address;
+    private String addressLine1;
+    private String city;
+    private String state;
+    private String zip;
 
-    public Publisher(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public Publisher() {
     }
 
-    public Publisher(){
+    @Override
+    public String toString() {
+        return "Publisher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", addressLine1='" + addressLine1 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zip='" + zip + '\'' +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Publisher publisher = (Publisher) o;
+
+        return id != null ? id.equals(publisher.id) : publisher.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 
     public Long getId() {
@@ -41,35 +64,35 @@ public class Publisher {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Publisher publisher = (Publisher) o;
-
-        return id != null ? id.equals(publisher.id) : publisher.id == null;
+    public String getCity() {
+        return city;
     }
 
-    @Override
-    public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    @Override
-    public String toString() {
-        return "Publisher{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 }
